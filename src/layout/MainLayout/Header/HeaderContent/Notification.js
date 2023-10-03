@@ -44,7 +44,6 @@ const actionSX = {
   transform: 'none'
 };
 
-// ==============================|| HEADER CONTENT - NOTIFICATION ||============================== //
 
 const Notification = () => {
   const theme = useTheme();

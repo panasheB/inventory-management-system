@@ -6,11 +6,11 @@ const icons = {
   DashboardOutlined
 };
 
-// ==============================|| MENU ITEMS - DASHBOARD ||============================== //
+
 
 const dashboard = {
   id: 'group-dashboard',
-  title: 'Navigation',
+  title: 'Inventory',
   type: 'group',
   children: [
     {
