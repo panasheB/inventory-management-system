@@ -24,10 +24,10 @@ function TranscationDetails({ transaction }) {
                                             <div>
                                                 <Row>
                                                     <Col>
-                                                        <span style={{ fontStyle: 'italic' }}>Specialists in Machine Learning</span>
+                                                        <span style={{ fontStyle: 'italic' }}>Gas Specialists</span>
                                                         <br />
-                                                        <p>Midrand, Gauteng</p>
-                                                        <p>South Africa</p>
+                                                        <p>BUlawayo Harare</p>
+                                                        <p>Zimbabwe</p>
                                                         <p style={{ marginTop: '20px' }}>027749779640</p>
                                                     </Col>
                                                 </Row>
@@ -36,10 +36,10 @@ function TranscationDetails({ transaction }) {
                                                 <CIcon icon={cilPrint} height={20} width={20} style={{ cursor: 'pointer', marginRight: '5px' }} />
                                             </div>
                                             <div>
-                                                <h4>Invoice</h4>
-                                                <p style={{ fontWeight: 'bold', color: 'black' }}>Karibu Techs AI</p>
+                                                <h4>Transaction</h4>
+                                                <p style={{ fontWeight: 'bold', color: 'black' }}>Gas SPecailists</p>
                                                 <p>Reg: K2018252309</p>
-                                                <p>57 Carlswald Meadows</p>
+                                                <p>Bulaway0 12 KUmalo</p>
 
                                             </div>
                                         </div>
