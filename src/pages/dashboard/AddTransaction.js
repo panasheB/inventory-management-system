@@ -4,12 +4,15 @@ import { CTableHeaderCell, CTableDataCell, CTableRow } from '@coreui/react';
 import { CTableFoot } from '@coreui/react';
 import { BsTrashFill } from 'react-icons/bs';
 import { Button, Input, Row, Col, Select, Table, Space } from 'antd';
+import axios from "axios";
+import swal from "sweetalert";
 
 function AddTransaction() {
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [currency, setCurrency] = useState('USD');
   const [mode, setMode] = useState();
+
   const buttonStyle3 = {
     backgroundColor: '#69A3DE',
     border: '1px solid #69A3DE',
@@ -23,7 +26,6 @@ function AddTransaction() {
   };
 
   const products = [{ name: 'LP GAS', priceUSD: 2, availableQuantity: 50, priceZIMDOLLAR: 34 }];
-
   const selectedProduct = products.find((item) => item.name === product);
   const price =
     currency === 'USD' ? selectedProduct?.priceUSD : currency === 'ZIMDOLLAR' ? selectedProduct?.priceZIMDOLLAR : selectedProduct?.priceUSD;
@@ -107,6 +109,23 @@ function AddTransaction() {
     }));
   };
 
+
+  const sessionSuccess = () => {
+    swal({
+      title: "Successful!",
+      text: "Transcation Completed!",
+      icon: "success",
+    });
+  };
+
+  const sessionError = () => {
+    swal({
+      title: "Error!",
+      text: "Opps something went wrong!",
+      icon: "error",
+    });
+  };
+
   function handleSubmit() {
     const { subtotal, total } = computeTotalAndSubtotal();
     const data = {
@@ -122,8 +141,21 @@ function AddTransaction() {
         availableQuantity: selectedProduct?.availableQuantity,
         paymentMode: mode,
         change: '',
-        cumulativeAmount: transaction?.cumulativeAmount
-    };
+        cumulativeAmount: subtotal,
+        casenumber:'CSE' + Math.floor(Math.random() * 9999999),
+        transactionid:'T' + Math.floor(Math.random() * 9999999),
+    };    axios
+    .post(`http://localhost:9000/mongo/transactions/create`, data)
+    .then((response) => {
+      console.log(response);
+      sessionSuccess();
+    })
+    .catch((error) => {
+      console.log(error);
+      sessionError();
+    });
+
+
     console.log(data);
   }
 
@@ -131,7 +163,6 @@ function AddTransaction() {
     border: '0.5px solid lightgrey',
     padding: '10px'
   };
-  //tables
 
   const columns = [
     {

@@ -1,6 +1,5 @@
-import React from 'react';
+import {React,useState} from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-
 // material-ui
 import {
   Button,
@@ -17,20 +16,15 @@ import {
   Stack,
   Typography
 } from '@mui/material';
-
 // third party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-
 // project import
 import FirebaseSocial from './FirebaseSocial';
 import AnimateButton from 'components/@extended/AnimateButton';
-
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-
 // ============================|| FIREBASE - LOGIN ||============================ //
-
 const AuthLogin = () => {
   const [checked, setChecked] = React.useState(false);
 
@@ -42,6 +36,8 @@ const AuthLogin = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  console.log(isAuthenticated)
 
   return (
     <>
@@ -57,14 +53,34 @@ const AuthLogin = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            setStatus({ success: false });
-            setSubmitting(false);
+            // Make a POST request to your login endpoint
+            const response = await fetch('http://192.168.0.108/chikoro/auth/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                email: values?.email,
+                password: values?.password,
+                secret_key: 'h2ee3n6MI2MD8afBXqkzuSOJ05NFKxt8',
+              }),
+            });
+        
+            if (response.ok) {
+              // Login is successful, set isAuthenticated to true
+              setIsAuthenticated(true);
+            } else {
+              // Handle login errors
+              setStatus({ success: false });
+              setSubmitting(false);
+            }
           } catch (err) {
             setStatus({ success: false });
             setErrors({ submit: err.message });
             setSubmitting(false);
           }
         }}
+        
       >
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit}>

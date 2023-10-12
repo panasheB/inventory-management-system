@@ -32,6 +32,15 @@ const utilities = {
       icon: icons.FontSizeOutlined
     },
 
+    {
+      id: 'util-transaction',
+      title: 'Adminstration',
+      type: 'item',
+      url: '/adminstration',
+      icon: icons.FontSizeOutlined
+    },
+
+
   
   ]
 };
