@@ -3,11 +3,8 @@ import { Box, TableContainer } from '@mui/material';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Drawer, Space } from 'antd';
-import {
-
-  cilHome,
-} from "@coreui/icons";
-import CIcon from "@coreui/icons-react";
+import { HeatMapOutlined } from '@ant-design/icons';
+import TranscationDetails from './TransactionDetails';
 
 // third-party
 
@@ -24,11 +21,11 @@ export default function OrderTable() {
       });
   }, []);
   const [transactionDetails, setTractionDetails] = useState(null);
-  console.log(transactionDetails)
+  console.log(transactionDetails);
   const [open, setOpen] = useState(false);
   const showDrawer = (record) => {
     setOpen(true);
-    setTractionDetails(record)
+    setTractionDetails(record);
   };
 
   const onClose = () => {
@@ -36,22 +33,15 @@ export default function OrderTable() {
   };
 
   const transactionColumn = [
- 
-  {
-    title: 'Items',
-    key: 'action',
-    render: (record) => (
-      <div style={{ display: 'flex', gap: '10px' }}>
-         <CIcon
-    style={{ color: "blue", cursor: "pointer" }}
-    icon={cilHome}
-    onClick={() =>
-      showDrawer(record)
-    }
-  />
-      </div>
-    )
-  },
+    {
+      title: '##',
+      key: '##',
+      render: (record) => (
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <HeatMapOutlined style={{ color: 'blue', cursor: 'pointer' }} onClick={() => showDrawer(record)}/>
+        </div>
+      )
+    },
     {
       title: 'Transaction ID',
       dataIndex: 'transactionid',
@@ -92,7 +82,7 @@ export default function OrderTable() {
       key: 'action',
       render: (record) => (
         <div style={{ display: 'flex', gap: '10px' }}>
-      {record?.currency} {record?.cumulativeAmount}
+          {record?.currency} {record?.cumulativeAmount}
         </div>
       )
     },
@@ -102,7 +92,7 @@ export default function OrderTable() {
       key: 'action',
       render: (record) => (
         <div style={{ display: 'flex', gap: '10px' }}>
-      {record?.currency} {record?.subtotal}
+          {record?.currency} {record?.subtotal}
         </div>
       )
     },
@@ -111,12 +101,12 @@ export default function OrderTable() {
       dataIndex: 'createdAt',
       key: 'createdAt',
       render: (createdAt) => createdAt?.slice(0, 10)
-    },
+    }
   ];
 
   return (
     <Box>
-        <Drawer
+      <Drawer
         title="Transaction Reciept"
         width={600}
         onClose={onClose}
@@ -130,11 +120,8 @@ export default function OrderTable() {
           </Space>
         }
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+       <TranscationDetails transaction ={transactionDetails}/>
       </Drawer>
-
 
       <TableContainer
         sx={{
