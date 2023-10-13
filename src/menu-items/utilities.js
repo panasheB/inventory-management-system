@@ -33,6 +33,14 @@ const utilities = {
     },
 
     {
+      id: 'util-items',
+      title: 'Items',
+      type: 'item',
+      url: '/items',
+      icon: icons.FontSizeOutlined
+    },
+
+    {
       id: 'util-transaction',
       title: 'Adminstration',
       type: 'item',

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { CFormLabel } from '@coreui/react';
 import { CTableHeaderCell, CTableDataCell, CTableRow } from '@coreui/react';
 import { CTableFoot } from '@coreui/react';
@@ -25,8 +25,20 @@ function AddTransaction() {
     cursor: 'pointer'
   };
 
-  const products = [{ name: 'LP GAS', priceUSD: 2, availableQuantity: 50, priceZIMDOLLAR: 34 }];
-  const selectedProduct = products.find((item) => item.name === product);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:9000/mongo/items/get')
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // const products = [{ name: 'LP GAS', priceUSD: 2, availableQuantity: 50, priceZIMDOLLAR: 34 }];
+  const selectedProduct = products?.find((item) => item.name === product);
   const price =
     currency === 'USD' ? selectedProduct?.priceUSD : currency === 'ZIMDOLLAR' ? selectedProduct?.priceZIMDOLLAR : selectedProduct?.priceUSD;
 
@@ -42,7 +54,7 @@ function AddTransaction() {
     const productInCart = {
       name: product,
       price,
-      quantity
+      quantity,
     };
     setProductsInCart([...productsInCart, productInCart]);
   };
@@ -156,7 +168,38 @@ function AddTransaction() {
     });
 
 
-    console.log(data);
+  }
+
+  function handleSubmit1() {
+    const quantity = -1 * Number(productsInCart?.['0']?.quantity);
+
+    const code = products?.['0']?.code
+
+  
+    axios
+      .put(
+        "http://localhost:9000/mongo/items/updateItemQuantity",
+        {
+          code: code, // Assuming 'code' is defined elsewhere
+          quantity: quantity,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  
+  const handleButtonClick =()=>{
+    handleSubmit()
+    handleSubmit1()
   }
 
   const containerStyle = {
@@ -451,7 +494,7 @@ function AddTransaction() {
                     </div>
                     <hr />
                     <div style={{ display: 'flex', justifyContent: 'end' }}>
-                      <Button className="sb-3" size="sm" style={buttonStyle3} onClick={handleSubmit}>
+                      <Button className="sb-3" size="sm" style={buttonStyle3} onClick={handleButtonClick}>
                         Confirm Order
                       </Button>{' '}
                     </div>

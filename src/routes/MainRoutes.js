@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
 import AddTransaction from 'pages/dashboard/AddTransaction';
+import ItemsPage from 'pages/dashboard/ItemsPage';
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 import Adminstration from 'pages/dashboard/Adminstration';
 // render - dashboard
@@ -48,6 +49,13 @@ const MainRoutes = {
       path: 'login1',
       element: <AuthLogin />
     },
+
+    {
+      path: 'items',
+      element: <ItemsPage />
+    },
+
+    
  
   ]
 };
