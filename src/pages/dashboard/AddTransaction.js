@@ -3,7 +3,7 @@ import { CFormLabel } from '@coreui/react';
 import { CTableHeaderCell, CTableDataCell, CTableRow } from '@coreui/react';
 import { CTableFoot } from '@coreui/react';
 import { BsTrashFill } from 'react-icons/bs';
-import { Button, Input, Row, Col, Select, Table, Space } from 'antd';
+import { Button, Input, Row, Col, Select, Table, Space,Watermark } from 'antd';
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -289,6 +289,9 @@ function AddTransaction() {
 
   return (
     <>
+     
+
+      <Watermark content={['MEGA GAS', 'MEGA FIRE']}   style={{ color: 'green' }} >
       <div style={containerStyle}>
         <>
           <div style={{ backgroundColor: 'white' }}>
@@ -505,6 +508,12 @@ function AddTransaction() {
           </div>
         </>
       </div>
+
+  </Watermark>
+
+
+
+
     </>
   );
 }

@@ -2,9 +2,11 @@ import { Table } from 'antd';
 import { Box, TableContainer } from '@mui/material';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Drawer, Space } from 'antd';
-import { HeatMapOutlined,PlusOutlined } from '@ant-design/icons';
+import { Button, Drawer, Space, Tooltip,Watermark } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { BsTrashFill } from 'react-icons/bs';
 import DeleteItem from './DeleteItem';
+import avatar1 from 'assets/images/users/watermark.jpeg';
 import UpdateStock from './UpdateStock';
 
 // third-party
@@ -21,35 +23,31 @@ export default function OrderTable() {
         console.log(error);
       });
   }, []);
-    const [itemDetails, setItemDetails] = useState(null);
-console.log(itemDetails)
-    const [open, setOpen] = useState(false);
-    const showDrawer = (record) => {
-      setOpen(true);
-      setItemDetails(record);
-    };
+  const [itemDetails, setItemDetails] = useState(null);
+  console.log(itemDetails);
+  const [open, setOpen] = useState(false);
+  const showDrawer = (record) => {
+    setOpen(true);
+    setItemDetails(record);
+  };
 
-    const onClose = () => {
-      setOpen(false);
-    };
+  const onClose = () => {
+    setOpen(false);
+  };
 
+  //stock
+  const [itemDetails1, setItemDetails1] = useState(null);
+  const [open1, setOpen1] = useState(false);
+  const showDrawer1 = (record) => {
+    setOpen1(true);
+    setItemDetails1(record);
+  };
 
-
-
-    //stock
-    const [itemDetails1, setItemDetails1] = useState(null);
-    const [open1, setOpen1] = useState(false);
-    const showDrawer1 = (record) => {
-      setOpen1(true);
-      setItemDetails1(record);
-    };
-
-    const onClose1 = () => {
-      setOpen1(false);
-    };
+  const onClose1 = () => {
+    setOpen1(false);
+  };
 
   const itemColumn = [
- 
     {
       title: 'Item Code',
       dataIndex: 'code',
@@ -72,20 +70,33 @@ console.log(itemDetails)
       key: 'priceUSD'
     },
 
-       {
+    {
       title: 'Action',
       key: 'action',
       render: (record) => (
         <div style={{ display: 'flex', gap: '10px' }}>
-          <HeatMapOutlined style={{ color: 'blue', cursor: 'pointer' }} onClick={() => showDrawer(record)}/>
-          <PlusOutlined style={{ color: 'blue', cursor: 'pointer' }} onClick={() => showDrawer1(record)}/>
+          <Space size="middle">
+            <Tooltip title="Delete Item" color="grey">
+              <BsTrashFill size={12} color="#69a3de" style={{ cursor: 'pointer' }} onClick={() => showDrawer(record)} />
+            </Tooltip>
+          </Space>
+
+          <Tooltip title="Add Stock" color="grey">
+            <PlusOutlined style={{ color: 'blue', cursor: 'pointer' }} onClick={() => showDrawer1(record)} />
+          </Tooltip>
         </div>
       )
-    },
+    }
   ];
 
   return (
-    <Box>
+
+<Box>
+
+    <Watermark >
+   
+ 
+
       <Drawer
         title="Delete Item"
         width={600}
@@ -93,16 +104,13 @@ console.log(itemDetails)
         open={open}
         extra={
           <Space>
-            <Button >Cancel</Button>
-            <Button type="primary" >
-              OK
-            </Button>
+            <Button>Cancel</Button>
+            <Button type="primary">OK</Button>
           </Space>
         }
       >
-        <DeleteItem  itemDetails={itemDetails}/>
+        <DeleteItem itemDetails={itemDetails} />
       </Drawer>
-
 
       <Drawer
         title="Update Stock"
@@ -111,14 +119,12 @@ console.log(itemDetails)
         open={open1}
         extra={
           <Space>
-            <Button >Cancel</Button>
-            <Button type="primary" >
-              OK
-            </Button>
+            <Button>Cancel</Button>
+            <Button type="primary">OK</Button>
           </Space>
         }
       >
-        <UpdateStock  itemDetails={itemDetails1}/>
+        <UpdateStock itemDetails={itemDetails1} />
       </Drawer>
 
       <TableContainer
@@ -139,7 +145,24 @@ console.log(itemDetails)
             pageSize: 10
           }}
         />
+
+<img
+      style={{
+        zIndex: 10,
+        maxWidth: 200,
+        display: 'block',
+        margin: '0 auto',
+      }}
+      src= {avatar1}
+
+   
+      alt="示例图片"
+    />
+
       </TableContainer>
-    </Box>
+
+  </Watermark>
+  </Box>
+   
   );
 }

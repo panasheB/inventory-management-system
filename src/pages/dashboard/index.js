@@ -5,6 +5,8 @@ import {
 import OrdersTable from './OrdersTable';
 import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+import avatar1 from 'assets/images/users/watermark.jpeg';
+import { Watermark } from 'antd';
 
 
 
@@ -15,7 +17,16 @@ import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 const DashboardDefault = () => {
 
   return (
-    <Grid container rowSpacing={4.5} columnSpacing={2.75}>
+   
+
+
+
+
+<Watermark >
+
+
+
+<Grid container rowSpacing={4.5} columnSpacing={2.75}>
       {/* row 1 */}
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Gas Inventory Manager</Typography>
@@ -50,6 +61,23 @@ const DashboardDefault = () => {
      
 
     </Grid>
+
+<img
+  style={{
+    zIndex: 10,
+    maxWidth: 400,
+    display: 'block',
+    margin: '0 auto',
+  }}
+  src= {avatar1}
+
+
+  alt="示例图片"
+/>
+
+
+</Watermark>
+
   );
 };
 
