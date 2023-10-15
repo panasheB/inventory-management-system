@@ -28,7 +28,7 @@ function AddTransaction() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get('http://localhost:9000/mongo/items/get')
+      .get('http://45.151.122.41:3061/mongo/items/get')
       .then((response) => {
         setProducts(response.data);
       })
@@ -157,7 +157,7 @@ function AddTransaction() {
         casenumber:'CSE' + Math.floor(Math.random() * 9999999),
         transactionid:'T' + Math.floor(Math.random() * 9999999),
     };    axios
-    .post(`http://localhost:9000/mongo/transactions/create`, data)
+    .post(`http://45.151.122.41:3061/mongo/transactions/create`, data)
     .then((response) => {
       console.log(response);
       sessionSuccess();
@@ -178,7 +178,7 @@ function AddTransaction() {
   
     axios
       .put(
-        "http://localhost:9000/mongo/items/updateItemQuantity",
+        "http://45.151.122.41:3061/mongo/items/updateItemQuantity",
         {
           code: code, // Assuming 'code' is defined elsewhere
           quantity: quantity,

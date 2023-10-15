@@ -63,7 +63,7 @@ function AddItem() {
         cost:transaction.cost,
     };    
     axios
-    .post(`http://localhost:9000/mongo/items/create`, data)
+    .post(`http://45.151.122.41:3061/mongo/items/create`, data)
     .then((response) => {
       console.log(response);
       sessionSuccess();

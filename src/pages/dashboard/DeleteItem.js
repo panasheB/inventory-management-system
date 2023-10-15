@@ -47,7 +47,7 @@ function DeleteItem({ itemDetails }) {
 const code = itemDetails?.code
 function handleSubmit() {
   axios
-    .delete("http://localhost:9000/mongo/items/deleteItem", {
+    .delete("http://45.151.122.41:3061/mongo/items/deleteItem", {
       data: { code: code },
       headers: {
         "Content-Type": "application/json",

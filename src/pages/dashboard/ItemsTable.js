@@ -15,7 +15,7 @@ export default function OrderTable() {
   const [items, setItems] = useState([]);
   useEffect(() => {
     axios
-      .get('http://localhost:9000/mongo/items/get')
+      .get('http://45.151.122.41:3061/mongo/items/get')
       .then((response) => {
         setItems(response.data);
       })

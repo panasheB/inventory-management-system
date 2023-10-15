@@ -12,7 +12,7 @@ export default function OrderTable() {
   const [transactions, setTranscactions] = useState([]);
   useEffect(() => {
     axios
-      .get('http://localhost:9000/mongo/transactions/get')
+      .get('http://45.151.122.41:3061/mongo/transactions/get')
       .then((response) => {
         setTranscactions(response.data);
       })

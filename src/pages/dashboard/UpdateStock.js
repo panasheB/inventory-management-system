@@ -53,7 +53,7 @@ function handleSubmit() {
   
     axios
       .put(
-        "http://localhost:9000/mongo/items/updateItemQuantity",
+        "http://45.151.122.41:3061/mongo/items/updateItemQuantity",
         {
           code: code, // Assuming 'code' is defined elsewhere
           quantity: quantity,
