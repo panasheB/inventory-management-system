@@ -46,8 +46,9 @@ function AddTransaction() {
   const currencyOptions = [{ value: 'USD', label: 'USD' }];
 
   const paymentMode = [
-    { value: 'Mode 1', label: 'Mode 1' },
-    { value: 'ANother', label: 'Another' }
+    { value: 'Cash', label: 'Cash' },
+    { value: 'Ecocash', label: 'Ecocash' },
+    { value: 'Transfer', label: 'Transfer' }
   ];
 
   const handleGenerateQuotation = () => {
