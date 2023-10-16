@@ -34,7 +34,7 @@ const AnalyticEcommerce = ({ color, title, count, percentage, isLoss, extra }) =
                   {isLoss && <FallOutlined style={{ fontSize: '0.75rem', color: 'inherit' }} />}
                 </>
               }
-              label={`${percentage}%`}
+              label={`${percentage}`}
               sx={{ ml: 1.25, pl: 1 }}
               size="small"
             />
@@ -44,7 +44,7 @@ const AnalyticEcommerce = ({ color, title, count, percentage, isLoss, extra }) =
     </Stack>
     <Box sx={{ pt: 2.25 }}>
       <Typography variant="caption" color="textSecondary">
-        You made an extra{' '}
+        You made..
         <Typography component="span" variant="caption" sx={{ color: `${color || 'primary'}.main` }}>
           {extra}
         </Typography>{' '}

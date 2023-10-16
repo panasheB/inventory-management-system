@@ -3,7 +3,6 @@ import {
   } from '@mui/material';
   import ItemsTable from './ItemsTable';
 
-  import { PlusOutlined } from '@ant-design/icons';
   import MainCard from 'components/MainCard';
   import { Button, Drawer, Space } from 'antd';
   import { useState } from 'react';
@@ -57,7 +56,9 @@ import AddItem from './AddItem';
           </Grid>
           <MainCard sx={{ mt: 2 }} content={false}>
             <div style ={{margin:"10px"}}>
-            <PlusOutlined  onClick={() => showDrawer()} style={{ color: 'blue', cursor: 'pointer',fontSize: '30px' }} />
+            <Button type="primary" ghost onClick={() => showDrawer()}>
+                New Item
+              </Button>
             </div>
             <ItemsTable />
           </MainCard>

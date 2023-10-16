@@ -1,21 +1,21 @@
 // assets
 import {
-  AppstoreAddOutlined,
   AntDesignOutlined,
-  BarcodeOutlined,
   BgColorsOutlined,
-  FontSizeOutlined,
-  LoadingOutlined
+  PayCircleOutlined,
+  LoadingOutlined,
+   DollarOutlined,
+   AppstoreAddOutlined,
 } from '@ant-design/icons';
 
 // icons
 const icons = {
-  FontSizeOutlined,
+   DollarOutlined,
+  PayCircleOutlined,
   BgColorsOutlined,
-  BarcodeOutlined,
   AntDesignOutlined,
   LoadingOutlined,
-  AppstoreAddOutlined
+  AppstoreAddOutlined,
 };
 
 
@@ -29,7 +29,7 @@ const utilities = {
       title: 'Transactions',
       type: 'item',
       url: '/transactions',
-      icon: icons.FontSizeOutlined
+      icon: icons.   DollarOutlined,
     },
 
     {
@@ -37,15 +37,15 @@ const utilities = {
       title: 'Items',
       type: 'item',
       url: '/items',
-      icon: icons.FontSizeOutlined
+      icon: icons.  AppstoreAddOutlined,
     },
 
     {
       id: 'util-transaction',
-      title: 'Adminstration',
+      title: 'Reporting',
       type: 'item',
-      url: '/adminstration',
-      icon: icons.FontSizeOutlined
+      url: '/reporting',
+      icon: icons.PayCircleOutlined
     },
 
 

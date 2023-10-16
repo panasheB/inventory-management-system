@@ -50,7 +50,7 @@ import App from './App';
 
 // Keycloak configuration
 const keycloakConfig = {
-  url: 'http://45.151.122.41:8080',
+  url: 'http://localhost:8080',
   realm: 'PanasheProject',
   clientId: 'Panashe-React-Client-App',
 };

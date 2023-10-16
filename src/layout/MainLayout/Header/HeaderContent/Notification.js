@@ -77,7 +77,7 @@ const Notification = () => {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <Badge badgeContent={4} color="primary">
+        <Badge badgeContent={0} color="primary">
           <BellOutlined />
         </Badge>
       </IconButton>
@@ -149,18 +149,18 @@ const Notification = () => {
                       <ListItemText
                         primary={
                           <Typography variant="h6">
-                            It&apos;s{' '}
+                            ...&apos;s{' '}
                             <Typography component="span" variant="subtitle1">
-                              Cristina danny&apos;s
+                              ....&apos;s
                             </Typography>{' '}
-                            birthday today.
+                          ......
                           </Typography>
                         }
                         secondary="2 min ago"
                       />
                       <ListItemSecondaryAction>
                         <Typography variant="caption" noWrap>
-                          3:00 AM
+                          ......
                         </Typography>
                       </ListItemSecondaryAction>
                     </ListItemButton>
@@ -180,16 +180,16 @@ const Notification = () => {
                         primary={
                           <Typography variant="h6">
                             <Typography component="span" variant="subtitle1">
-                              Aida Burg
+                              ............
                             </Typography>{' '}
-                            commented your post.
+                            ............
                           </Typography>
                         }
                         secondary="5 August"
                       />
                       <ListItemSecondaryAction>
                         <Typography variant="caption" noWrap>
-                          6:00 PM
+                        ............
                         </Typography>
                       </ListItemSecondaryAction>
                     </ListItemButton>
@@ -208,9 +208,9 @@ const Notification = () => {
                       <ListItemText
                         primary={
                           <Typography variant="h6">
-                            Your Profile is Complete &nbsp;
+                            ............ &nbsp;
                             <Typography component="span" variant="subtitle1">
-                              60%
+                            ............
                             </Typography>{' '}
                           </Typography>
                         }
@@ -218,7 +218,7 @@ const Notification = () => {
                       />
                       <ListItemSecondaryAction>
                         <Typography variant="caption" noWrap>
-                          2:45 PM
+                        ............
                         </Typography>
                       </ListItemSecondaryAction>
                     </ListItemButton>
@@ -238,11 +238,11 @@ const Notification = () => {
                         primary={
                           <Typography variant="h6">
                             <Typography component="span" variant="subtitle1">
-                              Cristina Danny
+                            ............
                             </Typography>{' '}
-                            invited to join{' '}
+                            ............{' '}
                             <Typography component="span" variant="subtitle1">
-                              Meeting.
+                            ............
                             </Typography>
                           </Typography>
                         }
@@ -250,7 +250,7 @@ const Notification = () => {
                       />
                       <ListItemSecondaryAction>
                         <Typography variant="caption" noWrap>
-                          9:10 PM
+                        ............
                         </Typography>
                       </ListItemSecondaryAction>
                     </ListItemButton>
@@ -259,7 +259,7 @@ const Notification = () => {
                       <ListItemText
                         primary={
                           <Typography variant="h6" color="primary">
-                            View All
+                          ............
                           </Typography>
                         }
                       />

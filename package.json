@@ -2,7 +2,7 @@
   "name": "inventory-react-admin-template",
   "version": "1.1.2",
   "private": true,
-  "homepage": "http://45.151.122.41:3060/myapp",
+  "homepage": "http://localhost:3000/myapp",
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
@@ -52,7 +52,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --port $REACT_APP_PORT",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -23,31 +23,31 @@ const SettingTab = () => {
         <ListItemIcon>
           <QuestionCircleOutlined />
         </ListItemIcon>
-        <ListItemText primary="Support" />
+        <ListItemText primary=" ............" />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
         <ListItemIcon>
           <UserOutlined />
         </ListItemIcon>
-        <ListItemText primary="Account Settings" />
+        <ListItemText primary=" ............" />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2)}>
         <ListItemIcon>
           <LockOutlined />
         </ListItemIcon>
-        <ListItemText primary="Privacy Center" />
+        <ListItemText primary=" ............" />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
         <ListItemIcon>
           <CommentOutlined />
         </ListItemIcon>
-        <ListItemText primary="Feedback" />
+        <ListItemText primary=" ............" />
       </ListItemButton>
       <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)}>
         <ListItemIcon>
           <UnorderedListOutlined />
         </ListItemIcon>
-        <ListItemText primary="History" />
+        <ListItemText primary=" ............" />
       </ListItemButton>
     </List>
   );

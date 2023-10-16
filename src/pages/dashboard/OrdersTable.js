@@ -21,7 +21,6 @@ export default function OrderTable() {
       });
   }, []);
   const [transactionDetails, setTractionDetails] = useState(null);
-  console.log(transactionDetails);
   const [open, setOpen] = useState(false);
   const showDrawer = (record) => {
     setOpen(true);
@@ -138,7 +137,7 @@ export default function OrderTable() {
           dataSource={transactions}
           size="small"
           pagination={{
-            pageSize: 10
+            pageSize: 2
           }}
         />
       </TableContainer>
