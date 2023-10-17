@@ -60,13 +60,13 @@ const DashboardDefault = () => {
         <AnalyticEcommerce title="Total Sales" count={formattedWeeklySales} percentage={formattedMonthly} extra={formattedDaily} />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Items" count={items} percentage={formattedItesm} extra="1" />
+        <AnalyticEcommerce title="Total Items" count={items} percentage={formattedItesm} extra={items} />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Profits" count={formattedWeekly} percentage={formattedTotalProfit} isLoss color="warning" extra={totalProfit} />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Quantity in Stock [kgs]" count={quantiityInStock} percentage={kgs} isLoss  extra="$0000" />
+        <AnalyticEcommerce title="Quantity in Stock [kgs]" count={quantiityInStock} percentage={kgs} isLoss  extra={quantiityInStock} />
       </Grid>
 
         <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />

@@ -155,7 +155,7 @@ const Reporting = () => {
         <AnalyticEcommerce title="Total Sales" count={formattedWeeklySales} percentage={formattedMonthly} extra={formattedDaily} />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Items" count={items} percentage={formattedItesm} extra="1" />
+        <AnalyticEcommerce title="Total Items" count={items} percentage={formattedItesm} extra={items} />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce
