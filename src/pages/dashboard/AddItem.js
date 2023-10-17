@@ -58,7 +58,7 @@ function AddItem() {
         code: transaction.code,
         name: transaction.name,
         availableQuantity: Number(transaction?.availableQuantity),
-        priceUSD: transaction.priceUSD,
+        priceUSD: Number(transaction.priceUSD),
         description: transaction.description,
         cost:transaction.cost,
     };    

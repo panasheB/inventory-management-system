@@ -245,7 +245,7 @@ function AddTransaction() {
       key: index,
       name: product.name,
       price: product.price,
-      quantity: product.quantity
+      quantity: Number(product.quantity)
     }));
 
     return (
@@ -333,7 +333,7 @@ function AddTransaction() {
                   <Col span={8}>
                     <CFormLabel>Quantity</CFormLabel>
 
-                    <Input type="number" min={0} value={quantity} onChange={handleChangeQuantity} />
+                    <Input type="text" min={0} value={quantity} onChange={handleChangeQuantity} />
                   </Col>
                   <Col span={8}>
                     <CFormLabel>Currency</CFormLabel>
