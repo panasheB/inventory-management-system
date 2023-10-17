@@ -333,7 +333,7 @@ function AddTransaction() {
                   <Col span={8}>
                     <CFormLabel>Quantity</CFormLabel>
 
-                    <Input type="text" min={0} value={quantity} onChange={handleChangeQuantity} />
+                    <Input type="number" min={0} value={quantity} onChange={handleChangeQuantity} />
                   </Col>
                   <Col span={8}>
                     <CFormLabel>Currency</CFormLabel>
