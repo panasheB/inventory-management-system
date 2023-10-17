@@ -18,7 +18,8 @@ function DeleteItem({ itemDetails }) {
   };
 
   const [transaction, setTranscaction] = useState({
-    reason: ''
+    reason: '',
+    password:""
   });
 
   const handleChange = (event) => {
@@ -46,22 +47,31 @@ function DeleteItem({ itemDetails }) {
   };
 const code = itemDetails?.code
 function handleSubmit() {
-  axios
-    .delete("http://45.151.122.41:3061/mongo/items/deleteItem", {
-      data: { code: code },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => {
-      console.log(response);
-      sessionSuccess();
-    })
-    .catch((error) => {
-      console.log(error);
-      sessionError();
-    });
+  const password = transaction.password;
+  if (password === 'admin@gmail.com') {
+    axios
+      .delete("http://45.151.122.41:3061/mongo/items/deleteItem", {
+        data: { code: code },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        sessionSuccess();
+      })
+      .catch((error) => {
+        console.log(error);
+        sessionError();
+      });
+  } else {
+    // Password doesn't match, show an error message or take appropriate action
+    sessionError();
+  }
 }
+
+
+
 
   const containerStyle = {
     border: '0.5px solid lightgrey',
@@ -88,6 +98,25 @@ function handleSubmit() {
                       name="code"
                       placeholder="Item Code"
                       value={transaction.code}
+                      onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+              </div>
+
+                  {/* Password Input */}
+                  <div style={{ marginBottom: '30px' }}>
+                <Row gutter={[16, 16]}>
+                  <Col span={24}>
+                    <CFormLabel>Password</CFormLabel>
+
+                    <Input
+                      type="password"
+                      size="sm"
+                      valid={transaction.password !== ''}
+                      name="password"
+                      placeholder="Enter Password"
+                      value={transaction.password}
                       onChange={handleChange}
                     />
                   </Col>

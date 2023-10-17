@@ -1,38 +1,3 @@
-// import { StrictMode } from 'react';
-// import { createRoot } from 'react-dom/client';
-// import { BrowserRouter } from 'react-router-dom';
-
-// // scroll bar
-// import 'simplebar/src/simplebar.css';
-
-// // third-party
-// import { Provider as ReduxProvider } from 'react-redux';
-
-// // apex-chart
-// import 'assets/third-party/apex-chart.css';
-
-// // project import
-// import App from './App';
-// import { store } from 'store';
-// import reportWebVitals from './reportWebVitals';
-
-
-// const container = document.getElementById('root');
-// const root = createRoot(container); // createRoot(container!) if you use TypeScript
-// root.render(
-//   <StrictMode>
-//     <ReduxProvider store={store}>
-//       <BrowserRouter basename="/myapp">
-//         <App />
-//       </BrowserRouter>
-//     </ReduxProvider>
-//   </StrictMode>
-// );
-
-
-// reportWebVitals();
-
-
 
 
 
@@ -50,11 +15,12 @@ import App from './App';
 
 // Keycloak configuration
 const keycloakConfig = {
-  url: 'http://45.151.122.41:8080',
-  realm: 'inventoryGas',
-  clientId: 'megaGas',
+  url: 'http://localhost:8080',
+  realm: 'PanasheProject',
+  clientId: 'Panashe-React-Client-App',
 };
 const keycloak = new Keycloak(keycloakConfig);
+console.log(keycloak)
 
 // Main page render
 const container = document.getElementById('root');
@@ -76,6 +42,7 @@ function Main() {
   }, []);
 
   if (!authenticated) {
+
     return (
       <StrictMode>
     <ReduxProvider store={store}>
@@ -89,3 +56,7 @@ function Main() {
 }
 root.render(<Main />);
 reportWebVitals();
+
+
+
+

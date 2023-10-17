@@ -17,13 +17,14 @@ function UpdateStock({ itemDetails }) {
     cursor: 'pointer'
   };
 
-  const [transaction, setTranscaction] = useState({
-    stock: null
+  const [transaction, setTransaction] = useState({
+    stock: null,//Add new stock
+    password: '', // Add a password field
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setTranscaction((prevRequest) => ({
+    setTransaction((prevRequest) => ({
       ...prevRequest,
       [name]: value
     }));
@@ -37,46 +38,51 @@ function UpdateStock({ itemDetails }) {
     });
   };
 
-  
-
   const sessionError = () => {
     swal({
       title: 'Error!',
-      text: 'Opps something went wrong!',
+      text: 'Oops, something went wrong!',
       icon: 'error'
     });
   };
-const code = itemDetails?.code
 
-function handleSubmit() {
+  const code = itemDetails?.code;
+
+  function handleSubmit() {
     const quantity = Number(transaction?.stock);
-  
-    axios
-      .put(
-        "http://45.151.122.41:3061/mongo/items/updateItemQuantity",
-        {
-          code: code, // Assuming 'code' is defined elsewhere
-          quantity: quantity,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+    const password = transaction.password;
+
+    // Check if the entered password matches "admin@gmail.com"
+    if (password === 'admin@gmail.com') {
+      axios
+        .put(
+          'http://45.151.122.41:3061/mongo/items/updateItemQuantity',
+          {
+            code: code, // Assuming 'code' is defined elsewhere
+            quantity: quantity,
           },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        sessionSuccess();
-      })
-      .catch((error) => {
-        console.log(error);
-        sessionError();
-      });
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          sessionSuccess();
+        })
+        .catch((error) => {
+          console.log(error);
+          sessionError();
+        });
+    } else {
+      // Password doesn't match, show an error message or take appropriate action
+      sessionError();
+    }
   }
-  
 
   const containerStyle = {
-    border: '0.5px solid lightgrey',
+    border: '0.5px solid light grey',
     padding: '10px'
   };
 
@@ -106,12 +112,36 @@ function handleSubmit() {
                 </Row>
               </div>
 
+              {/* Password Input */}
+              <div style={{ marginBottom: '30px' }}>
+                <Row gutter={[16, 16]}>
+                  <Col span={24}>
+                    <CFormLabel>Password</CFormLabel>
+
+                    <Input
+                      type="password"
+                      size="sm"
+                      valid={transaction.password !== ''}
+                      name="password"
+                      placeholder="Enter Password"
+                      value={transaction.password}
+                      onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+              </div>
+
               <div style={{ marginBottom: '30px' }}>
                 <Row gutter={[16, 16]}>
                   <Col span={24}>
                     <hr />
                     <div style={{ display: 'flex', justifyContent: 'end' }}>
-                      <Button className="sb-3" size="sm" style={buttonStyle3} onClick={handleSubmit}>
+                      <Button
+                        className="sb-3"
+                        size="sm"
+                        style={buttonStyle3}
+                        onClick={handleSubmit}
+                      >
                         Confirm
                       </Button>{' '}
                     </div>
