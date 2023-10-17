@@ -96,9 +96,9 @@ const Reporting = () => {
       .post(
         'https://api.emailjs.com/api/v1.0/email/send',
         {
-          service_id: 'service_pstlzz9',
-          template_id: 'template_z1r9h89',
-          user_id: '2oWGab5v3N75zR_An',
+          service_id: 'service_ewj5j0w',
+          template_id: 'template_r3v2fcq',
+          user_id: 'WsucVQ7GN3KYAL2Ey',
           template_params: {
             recipient_name: "MEGA GAS DIRECTOR", 
             email_subject: "Hello from EmailJS", 
