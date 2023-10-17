@@ -37,11 +37,9 @@ function AddTransaction() {
       });
   }, []);
 
-  // const products = [{ name: 'LP GAS', priceUSD: 2, availableQuantity: 50, priceZIMDOLLAR: 34 }];
   const selectedProduct = products?.find((item) => item.name === product);
   const price =
     currency === 'USD' ? selectedProduct?.priceUSD : currency === 'ZIMDOLLAR' ? selectedProduct?.priceZIMDOLLAR : selectedProduct?.priceUSD;
-
   const [productsInCart, setProductsInCart] = useState([]);
   const currencyOptions = [{ value: 'USD', label: 'USD' }];
 
