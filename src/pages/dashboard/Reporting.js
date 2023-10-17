@@ -96,7 +96,7 @@ const Reporting = () => {
       .post(
         'https://api.emailjs.com/api/v1.0/email/send',
         {
-          service_id: 'service_muxh3tc',
+          service_id: 'service_pstlzz9',
           template_id: 'template_z1r9h89',
           user_id: '2oWGab5v3N75zR_An',
           template_params: {
