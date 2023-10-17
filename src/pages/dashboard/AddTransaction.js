@@ -245,7 +245,7 @@ function AddTransaction() {
       key: index,
       name: product.name,
       price: product.price,
-      quantity: Number(product.quantity)
+      quantity: product.quantity
     }));
 
     return (
