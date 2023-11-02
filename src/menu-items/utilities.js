@@ -48,6 +48,31 @@ const utilities = {
       icon: icons.PayCircleOutlined
     },
 
+    {
+      id: 'util-assets',
+      title: 'Assets',
+      type: 'item',
+      url: '/assets',
+      icon: icons.PayCircleOutlined
+    },
+    {
+      id: 'util-categories',
+      title: 'Categories',
+      type: 'item',
+      url: '/categories',
+      icon: icons.PayCircleOutlined
+    },
+    {
+      id: 'util-maintenance',
+      title: 'Maintenance',
+      type: 'item',
+      url: '/maintenance',
+      icon: icons.PayCircleOutlined
+    },
+    
+
+    
+
 
   
   ]

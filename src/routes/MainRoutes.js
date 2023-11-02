@@ -4,8 +4,14 @@ import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
 import AddTransaction from 'pages/dashboard/AddTransaction';
 import ItemsPage from 'pages/dashboard/ItemsPage';
+import AssetPage from 'pages/dashboard/Assets/AssetPage';
+import MaintenancePage from 'pages/dashboard/Maintenance/MaintenancePage';
+
+
+
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 import Reporting from 'pages/dashboard/Reporting';
+import CategoryPage from 'pages/dashboard/Assets/CategoryPage';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 const Typography = Loadable(lazy(() => import('pages/components-overview/Typography')));
 
@@ -53,6 +59,21 @@ const MainRoutes = {
       path: 'items',
       element: <ItemsPage />
     },
+
+    {
+      path: 'assets',
+      element: <AssetPage />
+    },
+    {
+      path: 'categories',
+      element: <CategoryPage />
+    },
+    {
+      path: 'maintenance',
+      element: <MaintenancePage />
+    },
+    
+    
 
     
  
